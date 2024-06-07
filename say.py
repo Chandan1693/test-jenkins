@@ -4,4 +4,4 @@ import sys
 if len(sys.argv) == 2:
     cowsay.cow("hello, " + sys.argv[1])
 else:
-    cowsay.frog("Hello Stranger")
+    cowsay.pig("Hello Stranger")
