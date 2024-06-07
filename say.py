@@ -4,4 +4,4 @@ import sys
 if len(sys.argv) == 2:
     cowsay.cow("hello, " + sys.argv[1])
 else:
-    cowsay.tux("Hello Stranger")
+    cowsay.alligator("Hello Stranger")
