@@ -17,7 +17,6 @@ form_template = """
         <input type="text" id="name" name="name" value="{{ name }}"><br><br>
         <label for="figure">Choose a figure:</label>
         <select id="figure" name="figure">
-            <option value="cow" {% if figure == 'cow' %}selected{% endif %}>Cow</option>
             <option value="pig" {% if figure == 'pig' %}selected{% endif %}>Pig</option>
             <option value="tux" {% if figure == 'tux' %}selected{% endif %}>Tux</option>
             <!-- Add more figures as needed -->
