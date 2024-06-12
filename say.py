@@ -3,7 +3,7 @@ import subprocess
 
 app = Flask(__name__)
 
-# HTML template for the web form
+# HTML template for the web form with selected option retained
 form_template = """
 <!DOCTYPE html>
 <html>
@@ -14,12 +14,12 @@ form_template = """
     <h1>Cowsay Web Form</h1>
     <form method="POST">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
+        <input type="text" id="name" name="name" value="{{ name }}"><br><br>
         <label for="figure">Choose a figure:</label>
         <select id="figure" name="figure">
-            <option value="pig">Cow</option>
-            <option value="pig">Pig</option>
-            <option value="tux">Tux</option>
+            <option value="cow" {% if figure == 'cow' %}selected{% endif %}>Cow</option>
+            <option value="pig" {% if figure == 'pig' %}selected{% endif %}>Pig</option>
+            <option value="tux" {% if figure == 'tux' %}selected{% endif %}>Tux</option>
             <!-- Add more figures as needed -->
         </select><br><br>
         <input type="submit" value="Submit">
@@ -34,6 +34,9 @@ form_template = """
 @app.route("/", methods=["GET", "POST"])
 def home():
     message = None
+    name = ''
+    figure = 'cow'
+    
     if request.method == "POST":
         name = request.form["name"]
         figure = request.form["figure"]
@@ -49,7 +52,7 @@ def home():
         message = result.stdout
 
     # Render the form with the message
-    return render_template_string(form_template, message=message)
+    return render_template_string(form_template, message=message, name=name, figure=figure)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
