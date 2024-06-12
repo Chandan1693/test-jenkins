@@ -17,7 +17,7 @@ form_template = """
         <input type="text" id="name" name="name"><br><br>
         <label for="figure">Choose a figure:</label>
         <select id="figure" name="figure">
-            <option value="cow">Cow</option>
+            <option value="pig">Cow</option>
             <option value="pig">Pig</option>
             <option value="tux">Tux</option>
             <!-- Add more figures as needed -->
