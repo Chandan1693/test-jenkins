@@ -10,12 +10,12 @@ COPY requirements.txt .
 # Install any dependencies
 RUN pip install -r requirements.txt
 
+# Install cowsay
+RUN apt-get update && apt-get install -y cowsay
+
 # Copy the rest of the working directory contents into the container
 COPY . .
 
-# Expose the port Flask will run on
-EXPOSE 8000
-
-# Set the default command to run the Flask app
+# Set the default command to run the script with an argument
 ENTRYPOINT ["python", "say.py"]
 

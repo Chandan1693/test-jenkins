@@ -37,9 +37,17 @@ def home():
     if request.method == "POST":
         name = request.form["name"]
         figure = request.form["figure"]
+        
+        # Construct the cowsay command
         cmd = f"cowsay -f {figure} Hello, {name}"
+        
+        # Run the command and capture the output
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        
+        # Store the command output
         message = result.stdout
+
+    # Render the form with the message
     return render_template_string(form_template, message=message)
 
 if __name__ == "__main__":
