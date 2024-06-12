@@ -13,6 +13,9 @@ RUN pip install -r requirements.txt
 # Copy the rest of the working directory contents into the container
 COPY . .
 
-# Set the default command to run the script with an argument
+# Expose the port Flask will run on
+EXPOSE 5000
+
+# Set the default command to run the Flask app
 ENTRYPOINT ["python", "say.py"]
 
