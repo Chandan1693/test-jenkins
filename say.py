@@ -40,6 +40,7 @@ def home():
         
         # Construct the cowsay command
         cmd = f"cowsay -f {figure} Hello, {name}"
+        print(f"Executing command: {cmd}")  # Debug statement
         
         # Run the command and capture the output
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
