@@ -35,18 +35,17 @@ def home():
     message = None
     name = ''
     figure = 'pig'
-    
+
     if request.method == "POST":
         name = request.form["name"]
         figure = request.form["figure"]
-        
+
         # Construct the cowsay command
         cmd = f"cowsay -f \"{figure}\" Hello, {name}"
-        #print(f"Executing command: {cmd}")  # Debug statement
-        
+
         # Run the command and capture the output
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-        
+
         # Store the command output
         message = result.stdout
 
