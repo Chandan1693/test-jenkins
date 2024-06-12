@@ -42,7 +42,7 @@ def home():
         figure = request.form["figure"]
         
         # Construct the cowsay command
-        cmd = f"cowsay -f {figure} Hello, {name}"
+        cmd = f"cowsay -t \"{name}\" -c \"{figure}\""
         #print(f"Executing command: {cmd}")  # Debug statement
         
         # Run the command and capture the output
