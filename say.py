@@ -42,8 +42,8 @@ def home():
         figure = request.form["figure"]
         
         # Construct the cowsay command
-        cmd = f"cowsay.{figure} Hello, {name}"
-        print(f"Executing command: {cmd}")  # Debug statement
+        cmd = f"cowsay -f {figure} Hello, {name}"
+        #print(f"Executing command: {cmd}")  # Debug statement
         
         # Run the command and capture the output
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
