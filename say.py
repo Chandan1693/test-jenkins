@@ -35,7 +35,7 @@ form_template = """
 def home():
     message = None
     name = ''
-    figure = 'cow'
+    figure = 'pig'
     
     if request.method == "POST":
         name = request.form["name"]
