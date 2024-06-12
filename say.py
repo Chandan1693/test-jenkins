@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template_string
-import cowsay
+import subprocess
 
 app = Flask(__name__)
 
@@ -37,13 +37,9 @@ def home():
     if request.method == "POST":
         name = request.form["name"]
         figure = request.form["figure"]
-        if figure == "cow":
-            message = cowsay.cow(f"Hello, {name}")
-        elif figure == "pig":
-            message = cowsay.pig(f"Hello, {name}")
-        elif figure == "tux":
-            message = cowsay.tux(f"Hello, {name}")
-        # Add more figures as needed
+        cmd = f"cowsay -f {figure} Hello, {name}"
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        message = result.stdout
     return render_template_string(form_template, message=message)
 
 if __name__ == "__main__":
