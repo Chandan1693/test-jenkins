@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Expose the port Flask will run on
-EXPOSE 5000
+EXPOSE 8000
 
 # Set the default command to run the Flask app
 ENTRYPOINT ["python", "say.py"]
