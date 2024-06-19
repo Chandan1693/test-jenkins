@@ -39,7 +39,7 @@ pipeline {
                     sh 'docker stop jenkins-testing-container || true && docker rm jenkins-testing-container || true'
 
                     // Run the new container with an argument
-                    sh 'docker run -d --name jenkins-testing-container -p 8000:8000 chand93/jenkins-testing:latest'
+                    sh 'docker run -d --name jenkins-testing-container -p 5000:5000 chand93/jenkins-testing:latest'
                 }
             }
         }
