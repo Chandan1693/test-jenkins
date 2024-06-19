@@ -17,5 +17,5 @@ RUN apt-get update && apt-get install -y cowsay
 COPY . .
 
 # Set the default command to run the script with an argument
-ENTRYPOINT ["python", "say.py"]
+ENTRYPOINT ["python", "googlespeech.py"]
 
