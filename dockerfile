@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y cowsay
 # Copy the rest of the working directory contents into the container
 COPY . .
 
+EXPOSE 5000
+
 # Set the default command to run the script with an argument
 ENTRYPOINT ["python", "hello.py"]
 
